@@ -1,0 +1,48 @@
+import java.io.*;
+import java.util.*;
+import java.text.*;
+import java.math.*;
+import java.util.regex.*;
+
+public class Solution {
+    public static void getCount(int[] arr)
+        {
+        int sum=0,dif=0,dif1=0;
+        for(int k=0;k<arr.length-1;k++)
+            {
+           if(arr[k]>arr[k+1])
+               {
+            dif=1-arr[k];
+           }
+            else
+                {
+                dif=arr[k+1]-1;
+            }
+            dif1=arr[k+1]-arr[k];
+               sum=sum+Math.abs(Math.max(Math.abs(dif),Math.abs(dif1)));
+        dif=0;
+        dif1=0;     
+            
+        }
+       
+ System.out.println(sum);
+        
+    }
+
+    public static void main(String[] args) {
+Scanner sc=new Scanner(System.in);
+int t=sc.nextInt();
+        int ab=0;
+  for(int i=0;i<t;i++)
+      {
+      int n=sc.nextInt();
+      int[] arr=new int[n];
+      for(int j=0;j<n;j++)
+          {
+          ab=sc.nextInt();
+          arr[j]=ab;
+      }
+      getCount(arr);
+  }
+    }
+}

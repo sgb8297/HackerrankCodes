@@ -1,0 +1,49 @@
+import java.io.*;
+import java.util.*;
+import java.text.*;
+import java.math.*;
+import java.util.regex.*;
+
+public class Solution {
+
+    public static void main(String[] args) {
+Scanner sc=new Scanner(System.in);
+        int t=sc.nextInt();
+        for(int j=0;j<t;j++)
+            {
+           String s=sc.next();
+            int k=0;
+            for(int i=1;i<s.length();i++)
+            {
+            int m=Math.abs((int)s.charAt(i)-(int)s.charAt(i-1));
+                if(i==1)
+                    {
+                int l=Math.abs((int)s.charAt(s.length()-2)-(int)s.charAt(s.length()-1));
+               if(m!=l)
+        {
+                System.out.println("Not Funny");
+               k++;
+                break;
+            }
+                }
+                else if(i!=1)
+                    {
+           int g=Math.abs((int)s.charAt(s.length()-2-i+1)-(int)s.charAt(s.length()-1-i+1));
+                 if(m!=g)
+        {
+                System.out.println("Not Funny");
+               k++;
+                break;
+            }
+                }
+      
+        }
+        if(k==0)
+            {
+                            System.out.println("Funny");
+
+        }
+        }
+        
+    }
+}

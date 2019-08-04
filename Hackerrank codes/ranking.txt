@@ -1,0 +1,54 @@
+import java.io.*;
+import java.util.*;
+import java.text.*;
+import java.math.*;
+import java.util.regex.*;
+
+public class Solution {
+    public static int getRank(int c,int[] scores,int[] rank)
+    {
+        int r=1;
+        
+        
+        for(int i=0;i<scores.length-1;i++)
+        {
+            if(c<scores[i] && scores[i]!=scores[i+1])
+            {
+               r++; 
+      
+            }
+          }
+        return r;
+    }
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        int n = in.nextInt();
+        int[] scores = new int[n];
+        for(int scores_i=0; scores_i < n; scores_i++){
+            scores[scores_i] = in.nextInt();
+        }
+        Arrays.sort(scores);
+        int c=1;
+        int[] rank=new int[2*n];
+         for(int i=0;i < n-1; i++){
+            if(scores[i]==scores[i+1])
+            {
+                rank[i]=c;
+            }
+             else if(scores[i]>scores[i+1])
+             {
+                 ++c;
+                 rank[i]=c;
+             }
+        }
+        int m = in.nextInt();
+        int[] alice = new int[m];
+        for(int alice_i=0; alice_i < m; alice_i++){
+            alice[alice_i] = in.nextInt();
+            int r=getRank(alice[alice_i],scores,rank);
+            
+            System.out.println(r);
+        }
+      
+    }
+}

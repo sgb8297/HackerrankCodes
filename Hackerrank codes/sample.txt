@@ -1,0 +1,74 @@
+#include <map>
+#include <set>
+#include <list>
+#include <cmath>
+#include <ctime>
+#include <deque>
+#include <queue>
+#include <stack>
+#include <string>
+#include <bitset>
+#include <cstdio>
+#include <limits>
+#include <vector>
+#include <climits>
+#include <cstring>
+#include <cstdlib>
+#include <fstream>
+#include <numeric>
+#include <sstream>
+#include <iostream>
+#include <algorithm>
+#include <unordered_map>
+
+using namespace std;
+int main()
+{
+	int x1,x2,v1,v2;
+	cin>>x1>>v1>>x2>>v2;
+	
+		if(x1<x2&&v1<v2||x1>x2&&v1>v2||x1==x2&&(v1<v2||v2>v1))
+		{
+			cout<<"NO";
+		return 0;
+		}
+    else if(x1==x2&&v1==v2)
+        {
+        cout<<"YES";
+   return 0;
+    }
+    else if((x1>x2||x1<x2)&&v1==v2)
+        {
+        
+        cout<<"NO";
+        return 0;
+    }
+
+		else if(x1<x2&&v1>v2||x1>x2&&v1<v2)
+		{
+            
+			int c=0;
+            double i=x1;
+            double j=x2;
+			while((x1<=10000||x2<=10000)&&c<2500)
+			{
+                
+				i+=v1;
+				j+=v2;
+				if(i==j)
+				{
+					cout<<"YES";
+					//c++;
+					break;
+				}
+				c++;
+			}
+			if(c>20 && i!=j)
+			{
+				cout<<"NO";
+			}
+		}
+	
+return 0;
+}
+

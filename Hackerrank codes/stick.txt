@@ -1,0 +1,47 @@
+#include <cmath>
+#include <cstdio>
+#include <vector>
+#include <iostream>
+#include <algorithm>
+using namespace std;
+
+int main(){
+    int n;
+    cin >> n;
+    vector<int> arr(n);
+    for(int arr_i = 0;arr_i < n;arr_i++){
+       cin >> arr[arr_i];
+    }
+    int temp=0;
+    int k=0;
+    
+   while(!arr.empty())
+       {
+    for(int i=0;i<arr.size();i++)
+        {
+        if(arr[i]<temp)
+            {
+           temp=arr[i];
+            
+        }
+        if(temp==arr[i]&&arr[i]!=0)
+            {
+            k++;
+        }
+    }
+      for(int l=0;l<arr.size();l++)
+          {
+        arr[l]=arr[l]-temp;
+          if(arr[l]==0)
+              {
+              arr.erase(arr.begin()+l);
+          }
+      }
+      arr.resize(n-k);
+           
+    
+      cout<<arr.size()<<"\n";   
+     
+  }
+    return 0;
+}

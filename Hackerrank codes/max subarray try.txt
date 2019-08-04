@@ -1,0 +1,98 @@
+import java.io.*;
+import java.util.*;
+import java.text.*;
+import java.math.*;
+import java.util.regex.*;
+
+public class Solution {
+
+    public static void main(String[] args) {
+Scanner sc=new  Scanner(System.in);
+        int t=sc.nextInt();
+        for(int i=0;i<t;i++)
+            {
+            int n=sc.nextInt();
+            int[] a=new int[n];
+            for(int j=0;j<n;j++)
+                {
+                int g=sc.nextInt();
+                a[j]=g;
+              }
+            Arrays.sort(a);
+            System.out.println(""+contag(a)+" "+noncontag(a));
+
+            
+        }
+    }
+    public static int contag(int[] a)
+        {
+        int sum=0,max=-999,k=0;
+        int m=a.length;
+        if(m!=1)
+            {
+        for(int i=0;i<a.length;i++)
+            {
+            if(a[i]>0)
+                {
+              
+                 sum=sum+a[i];
+            
+                
+            }
+            else if(a[i]<0 && max<=a[i])
+              
+                {
+              max=a[i];  
+k++;
+            }
+            
+        }
+        if(k>1)
+            {
+        sum=sum+max;
+        }
+        else if(k==1)
+            {
+            sum=sum+0;
+        }
+        }
+        else
+            {
+            sum=sum+a[0];
+        }
+            return sum;
+    }
+     public static int noncontag(int[] a)
+        {
+        int sum=0,l=0,max=-999;
+int m=a.length;
+         if(m!=1)
+             {
+         for(int i=0;i<a.length;i++)
+            {
+         if(a[i]>0)
+             {
+             sum=sum+a[i];
+             l++;
+         }
+             else if(a[i]>=max)
+                 {
+                 max=a[i];
+             }
+        }
+         if(l==0)
+             {
+             sum=max;
+         }
+         }
+         else 
+             {
+             sum=sum+a[0];
+         }
+        return sum;
+    
+         
+     }
+    
+    
+}

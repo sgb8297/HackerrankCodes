@@ -1,0 +1,34 @@
+import java.io.*;
+import java.util.*;
+import java.text.*;
+import java.math.*;
+import java.util.regex.*;
+
+public class Solution {
+public static void getCount(String b,int n)
+    {
+    int count=0;
+    int no=n/3;
+    int ab=0;
+    StringBuilder s=new StringBuilder();
+   for(int i=0;i<no;i++)
+       {
+       s.append("SOS");
+     }
+    for(int j=0;j<b.length();j++)
+        {
+        if(b.charAt(j)!=s.charAt(j))
+            {
+            count++;
+        }
+    }
+      
+   
+    System.out.println(count);
+}
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        String S = in.next();
+       getCount(S,S.length());
+    }
+}

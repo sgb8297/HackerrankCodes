@@ -1,0 +1,20 @@
+class Add
+    {
+    void add(int... x)
+        {
+  int sum=0;      
+        String add="";
+        for(int n:x)
+            {
+            sum=sum+n;
+            
+           add+=""+n+"+";
+           
+           
+        }
+ String out = add.substring(0,add.length()-1) + "=" + sum; 
+        System.out.println(out);        
+
+    }
+    
+}

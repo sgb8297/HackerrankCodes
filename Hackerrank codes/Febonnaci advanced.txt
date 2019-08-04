@@ -1,0 +1,30 @@
+import java.io.*;
+import java.util.*;
+import java.text.*;
+import java.math.*;
+import java.util.regex.*;
+
+public class Solution {
+
+    public static void main(String[] args) {
+Scanner sc=new Scanner(System.in);
+       BigInteger t1=sc.nextBigInteger();
+       BigInteger t2=sc.nextBigInteger();
+       ArrayList<BigInteger> outp = new ArrayList<BigInteger>();
+       outp.add(t1);
+       outp.add(t2);
+        int n=sc.nextInt();
+      // long[] arr=new long[n];
+        BigInteger t5;
+        for(int i=2;i<n;i++)
+            {
+            BigInteger t3=outp.get(i-1);
+            BigInteger t4=outp.get(i-2);
+t5=t4.add(t3.multiply(t3));
+               outp.add(t5);
+        
+            }
+        System.out.println(outp.get(n-1));
+       
+    }
+}

@@ -1,0 +1,64 @@
+public static void main(String[] args) {
+    Scanner in = new Scanner(System.in);
+    int n = in.nextInt();
+    int[] scores = new int[n];
+    int[] lranks = new int[n];
+    lranks[0]=1;
+    for(int scores_i=0; scores_i < n; scores_i++){
+        scores[scores_i] = in.nextInt();
+        if(scores_i>0){
+            if(scores[scores_i] < scores[scores_i-1]){
+            lranks[scores_i]= lranks[scores_i-1] + 1;
+            }else{
+            lranks[scores_i]= lranks[scores_i-1];
+        }
+        }
+    }
+
+    int m = in.nextInt();
+    int minsc = scores[n-1];
+    int maxsc = scores[0];
+
+    int[] alice = new int[m];
+    for(int alice_i=0; alice_i < m; alice_i++){
+        alice[alice_i] = in.nextInt();
+        int as = alice[alice_i];
+        int rank=0;
+        if(as>=maxsc){
+            rank=1;
+        }else if(as<minsc){
+            rank = lranks[n-1]+1;
+        }else if(as==minsc){
+            rank =lranks[n-1];
+        }else{
+            int i=0;
+            int j=n-1;
+            while(rank==0){
+                int mid = scores[(i+j)/2];
+
+                if(i==j){
+                    //System.out.println("i is "+i+" "+lranks[i]);
+                    if(as>scores[i]){
+                        rank=lranks[i];
+                    }else if(as<scores[i]){
+                        //System.out.println(i);
+                        rank=lranks[i]+1;
+                        break;
+                    }
+                }
+                else if(as>mid){
+                    j=(i+j)/2;
+                }else if(as<mid){
+                    i=(i+j+1)/2;
+                }else if(as==mid){
+                    rank=lranks[(i+j)/2];
+                    break;
+                }
+
+            }
+        }
+
+       System.out.println(rank);
+    }
+
+}

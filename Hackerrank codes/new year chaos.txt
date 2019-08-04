@@ -1,0 +1,69 @@
+import java.io.*;
+import java.util.*;
+import java.text.*;
+import java.math.*;
+import java.util.regex.*;
+
+public class Solution {
+
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        int T = in.nextInt();
+        int c=0;
+        for(int a0 = 0; a0 < T; a0++){
+            int n = in.nextInt();
+            int q[] = new int[n];
+            for(int q_i=0; q_i < n; q_i++){
+                q[q_i] = in.nextInt();
+            }
+         if(isChaotic(q))
+             {
+             System.out.println("Too chaotic");
+         }
+            else {
+                while(!sorted(q))
+                    {
+                    for(int i=0;i<q.length-1;i++)
+                        {
+                        if(q[i]>q[i+1])
+                            {
+                            int temp=q[i];
+                             q[i]=q[i+1];
+                            q[i+1]=temp;
+                          c++;
+                        }
+                    }
+                    
+                }
+                System.out.println(c);
+                
+              }
+                            c=0;
+
+        }
+    }
+    public static boolean sorted(int a[])
+{
+         for(int i=0;i<a.length-1;i++)
+   {
+            if(a[i]>a[i+1])
+                {
+            return false;
+            }
+        }         
+         return true;
+        
+    }    
+    public static boolean isChaotic(int a[])
+        {
+        for(int i=0;i<a.length;i++)
+   {
+            if(a[i]>i+3)
+                {
+                return true;
+            }
+        }         
+         return false;   
+   
+    }
+}

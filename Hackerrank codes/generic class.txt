@@ -1,0 +1,10 @@
+class Printer
+{
+    public static<e> void printArray(e[] inputarray)
+    {
+    for(e element:inputarray)
+        {
+        System.out.println(""+element);
+    }
+}
+}
